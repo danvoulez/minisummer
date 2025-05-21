@@ -1,0 +1,7 @@
+{
+  "theme": "mosaic",
+  "layout": "silent",
+  "badge": "institutional",
+  "token": "REPLACE_WITH_TOKEN",
+  "cron": "0 3 * * * /workspace/minisummer/scripts/nightly.sh"
+}
