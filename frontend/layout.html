@@ -3,8 +3,31 @@
 <head>
   <title>FlipApp</title>
   <link rel="stylesheet" href="../theme/mosaic.css">
+  <script>
+    function insertSuggestion(text) {
+      document.getElementById('loginput').value = text;
+    }
+    async function sendLog() {
+      const raw = document.getElementById('loginput').value;
+      const res = await fetch('/register', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({this: {raw}})
+      });
+      const data = await res.json();
+      alert('Registro salvo: ' + JSON.stringify(data.logline));
+    }
+  </script>
 </head>
 <body>
-<div id="root"></div>
+  <h1>FlipApp Registro</h1>
+  <textarea id="loginput" rows="4" cols="50"></textarea><br>
+  <button onclick="sendLog()">Registrar</button>
+  <h2>Sugestões</h2>
+  <ul>
+  {% for p in prompts %}
+    <li><button onclick="insertSuggestion('{{p}}')">{{p}}</button></li>
+  {% endfor %}
+  </ul>
 </body>
 </html>

@@ -1,13 +1,13 @@
 .PHONY: install deploy test nightly
 
 install:
-scripts/install.sh
+	scripts/install.sh
 
 deploy:
-scripts/deploy.sh
+	scripts/deploy.sh
 
 test:
-scripts/test.sh
+	scripts/test.sh
 
 nightly:
-scripts/nightly.sh
+	scripts/nightly.sh
